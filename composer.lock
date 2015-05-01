@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "736d8348cad0c701a384c23244bc89b4",
+    "hash": "a0e7e16ba8e1da10c4e877c0d6438df9",
     "packages": [
         {
             "name": "phapi/contract",
@@ -104,12 +104,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phapi/http.git",
-                "reference": "0cff0481cf9d332fac56f1c1a4d7789d7b12cc85"
+                "reference": "3a622d90bed8c79bfd77c18ea63317fd1f0bfa85"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phapi/http/zipball/0cff0481cf9d332fac56f1c1a4d7789d7b12cc85",
-                "reference": "0cff0481cf9d332fac56f1c1a4d7789d7b12cc85",
+                "url": "https://api.github.com/repos/phapi/http/zipball/3a622d90bed8c79bfd77c18ea63317fd1f0bfa85",
+                "reference": "3a622d90bed8c79bfd77c18ea63317fd1f0bfa85",
                 "shasum": ""
             },
             "require": {
@@ -145,7 +145,7 @@
                 "phapi",
                 "psr-7"
             ],
-            "time": "2015-04-23 10:29:34"
+            "time": "2015-05-01 13:23:02"
         },
         {
             "name": "psr/http-message",
