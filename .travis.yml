@@ -1,0 +1,23 @@
+language: php
+
+php:
+  - 5.5
+  - 5.6
+  - 7.0
+  - hhvm
+
+matrix:
+  allow_failures:
+    - php: hhvm
+    - php: 7.0
+
+install: composer install --dev
+
+after_script:
+  - vendor/bin/test-reporter --stdout > codeclimate.json
+  - "curl -X POST -d @codeclimate.json -H 'Content-Type: application/json' -H 'User-Agent: Code Climate (PHP Test Reporter v0.1.1)' https://codeclimate.com/test_reports"
+
+notifications:
+  email: false
+  slack:
+    secure: G9HJsompXLH/dW5DBMCS2bs+mb/PPdFNLz5NCIjXNvoU+08aJwAevwr5aLwBF4qppjekuZwtWpBFEbd0GYwteE8mAdjFG8pbj/QJHPpZJY3FNPtd9cYXLaIRCJ9XIP9L788e64D+kl4k+NRq+6MJA4T3Hs54u32gnyAEG87Bqm4=
