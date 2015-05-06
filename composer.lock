@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a0e7e16ba8e1da10c4e877c0d6438df9",
+    "hash": "a46af742f1f2e0ca22ae7afc5655fe70",
     "packages": [
         {
             "name": "phapi/contract",
@@ -104,18 +104,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phapi/http.git",
-                "reference": "3a622d90bed8c79bfd77c18ea63317fd1f0bfa85"
+                "reference": "26bc46c32e14e3af4afb32446bfa50cdd1864a57"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phapi/http/zipball/3a622d90bed8c79bfd77c18ea63317fd1f0bfa85",
-                "reference": "3a622d90bed8c79bfd77c18ea63317fd1f0bfa85",
+                "url": "https://api.github.com/repos/phapi/http/zipball/26bc46c32e14e3af4afb32446bfa50cdd1864a57",
+                "reference": "26bc46c32e14e3af4afb32446bfa50cdd1864a57",
                 "shasum": ""
             },
             "require": {
                 "phapi/contract": "dev-master",
                 "php": ">=5.5.0",
-                "psr/http-message": "0.10.*"
+                "psr/http-message": "0.11.*"
             },
             "require-dev": {
                 "codeclimate/php-test-reporter": "dev-master",
@@ -145,20 +145,20 @@
                 "phapi",
                 "psr-7"
             ],
-            "time": "2015-05-01 13:23:02"
+            "time": "2015-05-06 10:49:30"
         },
         {
             "name": "psr/http-message",
-            "version": "0.10.1",
+            "version": "0.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/http-message.git",
-                "reference": "9723465b3e7c8ecb0436f066bfb8a13e1bac1789"
+                "reference": "809419e498a388dfa7ef6898392431e5911a0289"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/http-message/zipball/9723465b3e7c8ecb0436f066bfb8a13e1bac1789",
-                "reference": "9723465b3e7c8ecb0436f066bfb8a13e1bac1789",
+                "url": "https://api.github.com/repos/php-fig/http-message/zipball/809419e498a388dfa7ef6898392431e5911a0289",
+                "reference": "809419e498a388dfa7ef6898392431e5911a0289",
                 "shasum": ""
             },
             "type": "library",
@@ -191,7 +191,7 @@
                 "request",
                 "response"
             ],
-            "time": "2015-04-13 14:20:01"
+            "time": "2015-05-04 20:20:08"
         }
     ],
     "packages-dev": [
