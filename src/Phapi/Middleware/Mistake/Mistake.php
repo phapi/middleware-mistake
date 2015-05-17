@@ -155,18 +155,23 @@ class Mistake implements ErrorMiddleware
         // Add to log
         $this->logException($exception);
 
-        // Get the latest request and response
-        $request =
-            (isset($this->container['latestRequest']))
-                ? $this->container['latestRequest']
-                : (isset($this->container['request']))
-                ? $this->container['request'] : new Request();
+        // Get the latest request
+        if (isset($this->container['latestRequest'])) {
+            $request = $this->container['latestRequest'];
+        } elseif ($this->container['request']) {
+            $request = $this->container['request'];
+        } else {
+            $request = new Request();
+        }
 
-        $response =
-            (isset($this->container['latestResponse']))
-                ? $this->container['latestResponse']
-                : (isset($this->container['response']))
-                ? $this->container['response'] : new Response();
+        // Get the latest response
+        if (isset($this->container['latestResponse'])) {
+            $response = $this->container['latestResponse'];
+        } elseif ($this->container['response']) {
+            $response = $this->container['response'];
+        } else {
+            $response = new Response();
+        }
 
         // Check if exception is an instance of the Phapi Exception. If not, create
         // an InternalServerError Exception to get better error message to send to
