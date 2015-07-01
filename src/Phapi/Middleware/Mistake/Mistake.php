@@ -6,8 +6,8 @@ use Phapi\Contract\Di\Container;
 use Phapi\Contract\Middleware\ErrorMiddleware;
 use Phapi\Exception;
 use Phapi\Exception\InternalServerError;
-use Phapi\Http\Stream;
-use Phapi\Http\Request;
+use Zend\Diactoros\Stream;
+use Phapi\Http\ServerRequestFactory;
 use Phapi\Http\Response;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface as RequestInterface;
@@ -158,7 +158,7 @@ class Mistake implements ErrorMiddleware
         // Try and get the latest request, or a new request
         $request =
             (isset($this->container['latestRequest']) ? $this->container['latestRequest'] :
-                (isset($this->container['request']) ? $this->container['request'] : new Request())
+                (isset($this->container['request']) ? $this->container['request'] : ServerRequestFactory::fromGlobals())
             );
 
         // Try and get the latest response, or a new response
