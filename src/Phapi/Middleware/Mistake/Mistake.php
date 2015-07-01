@@ -157,15 +157,11 @@ class Mistake implements ErrorMiddleware
 
         // Try and get the latest request, or a new request
         $request =
-            (isset($this->container['latestRequest']) ? $this->container['latestRequest'] :
-                (isset($this->container['request']) ? $this->container['request'] : ServerRequestFactory::fromGlobals())
-            );
+            (isset($this->container['latestRequest']) ? $this->container['latestRequest'] : $this->container['request']);
 
         // Try and get the latest response, or a new response
         $response =
-            (isset($this->container['latestResponse']) ? $this->container['latestResponse'] :
-                (isset($this->container['response']) ? $this->container['response'] : new Response())
-            );
+            (isset($this->container['latestResponse']) ? $this->container['latestResponse'] : $this->container['response']);
 
         // Check if exception is an instance of the Phapi Exception. If not, create
         // an InternalServerError Exception to get better error message to send to
