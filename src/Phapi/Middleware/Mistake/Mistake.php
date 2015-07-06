@@ -225,6 +225,10 @@ class Mistake implements ErrorMiddleware
         // Prepare body
         $body = [ 'errors' => [] ];
 
+        if (!empty($statusCode = $exception->getStatusCode())) {
+            $body['errors']['statusCode'] = $statusCode;
+        }
+
         // Check if a message has been defined
         if (!empty($message = $exception->getMessage())) {
             $body['errors']['message'] = $message;
