@@ -1,4 +1,9 @@
 # Mistake Middleware
+
+[![Build status](https://img.shields.io/travis/phapi/middleware-mistake.svg?style=flat-square)](https://travis-ci.org/phapi/middleware-mistake)
+[![Code Climate](https://img.shields.io/codeclimate/github/phapi/middleware-mistake.svg?style=flat-square)](https://codeclimate.com/github/phapi/middleware-mistake)
+[![Test Coverage](https://img.shields.io/codeclimate/coverage/github/phapi/middleware-mistake.svg?style=flat-square)](https://codeclimate.com/github/phapi/middleware-mistake/coverage)
+
 The Mistake Middleware handles errors and exceptions by registering custom shutdown function, error handler and exception handler. When an error or exception is caught the middleware creates a log entry and prepares an error message that will be sent to the client before interacting with the pipeline by reseting the queue and telling the pipeline to only call middleware registered before the Mistake Middleware (usually only serializers and middleware responsible for sending the response to the client).
 
 ## Installation
