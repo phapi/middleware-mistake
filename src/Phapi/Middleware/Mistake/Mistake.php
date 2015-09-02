@@ -225,8 +225,14 @@ class Mistake implements ErrorMiddleware
         // Prepare body
         $body = [ 'errors' => [] ];
 
+        // Set HTTP status code
         if (!empty($statusCode = $exception->getStatusCode())) {
             $body['errors']['statusCode'] = $statusCode;
+        }
+
+        // Check if a description exists
+        if (!empty($description = $exception->getDescription())) {
+            $body['errors']['description'] = $description;
         }
 
         // Check if a message has been defined
@@ -237,11 +243,6 @@ class Mistake implements ErrorMiddleware
         // Check if an error code has been defined
         if (!empty($code = $exception->getCode())) {
             $body['errors']['code'] = $code;
-        }
-
-        // Check if a description exists
-        if (!empty($description = $exception->getDescription())) {
-            $body['errors']['description'] = $description;
         }
 
         // Check if a link has been specified
