@@ -50,9 +50,24 @@ class Mistake implements ErrorMiddleware
      */
     private $displayErrors = false;
 
-    public function __construct($displayErrors = false)
+    /**
+     * Array of status codes that should
+     * be excluded from logging
+     *
+     * @var array
+     */
+    private $doNotLog;
+
+    /**
+     * Construct the mistake middleware
+     *
+     * @param bool|false $displayErrors
+     * @param array $doNotLog Array of status codes that should be excluded from logging
+     */
+    public function __construct($displayErrors = false, array $doNotLog = [])
     {
         $this->displayErrors = $displayErrors;
+        $this->doNotLog = $doNotLog;
 
         // Register handlers
         $this->register();
@@ -150,9 +165,6 @@ class Mistake implements ErrorMiddleware
      */
     public function exceptionHandler(\Exception $exception)
     {
-        // Add to log
-        $this->logException($exception);
-
         // Try and get the latest request, or a new request
         $request =
             (isset($this->container['latestRequest']) ?
@@ -174,6 +186,9 @@ class Mistake implements ErrorMiddleware
             );
         }
 
+        // Add to log
+        $this->logException($exception);
+
         // Prepare response with updated body (error message)
         // Reset body
         $response = $response->withBody(new Stream('php://memory', 'w+'));
@@ -193,10 +208,15 @@ class Mistake implements ErrorMiddleware
     /**
      * Create a log entry about the error exception
      *
-     * @param $exception
+     * @param Exception $exception
      */
-    private function logException($exception)
+    private function logException(Exception $exception)
     {
+        // Check if the error message should be logged or not
+        if (in_array($exception->getStatusCode(), $this->doNotLog)) {
+            return;
+        }
+
         // Prepare log message
         $message = sprintf(
             'Uncaught exception of type %s thrown in file %s at line %s%s.',
@@ -217,7 +237,7 @@ class Mistake implements ErrorMiddleware
      * Takes an Error Exception and gets the available error information
      * and creates a body of it and returns the body.
      *
-     * @param $exception
+     * @param Exception $exception
      * @return array
      */
     private function prepareErrorBody(Exception $exception)

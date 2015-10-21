@@ -2,7 +2,6 @@
 
 namespace Phapi\Tests\Middleware\Mistake\Mistake;
 
-use Phapi\Di\Container;
 use Phapi\Http\Request;
 use Phapi\Http\Response;
 use Phapi\Middleware\Mistake\Mistake;
