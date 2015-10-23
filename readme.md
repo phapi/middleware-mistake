@@ -14,13 +14,15 @@ $ php composer.phar require phapi/middleware-mistake:1.*
 ```
 
 ## Configuration
-There is one configuration option available for the Mistake Middleware; if error messages should be shown. This is handy to have enabled during development since it gives a more detailed error message. It should however **be turned off in production** since an error message will be serialized and return to the client. (Default: off).
+There are two configuration options available for the Mistake Middleware; if error messages should be shown. This is handy to have enabled during development since it gives a more detailed error message. It should however **be turned off in production** since an error message will be serialized and return to the client. (Default: off).
+
+The second option gives the opportunity to disable logging for specific status codes. This comes in handy if you, for example, don't want to flood your logs with 404 NotFound exceptions.
 
 ```php
 <?php
 
 // For development
-$pipeline->pipe(new \Phapi\Middleware\Mistake\Mistake($displayErrors = false));
+$pipeline->pipe(new \Phapi\Middleware\Mistake\Mistake($displayErrors = false, $doNotLog = [ 404 ]));
 
 ```
 
