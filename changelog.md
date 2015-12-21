@@ -2,6 +2,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [1.1.1] - 2015-12-21
+### Added
+- Added the complete exception to the logger to get better error messages in for example Sentry
+
 ## [1.1] - 2015-10-23
 ### Added
 - Option to by pass/disable logging for specific response status codes. Comes in handy when you don't want to get a lot of entries about 404 NotFound exceptions.
