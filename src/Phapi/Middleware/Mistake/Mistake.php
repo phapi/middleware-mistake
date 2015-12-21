@@ -227,9 +227,10 @@ class Mistake implements ErrorMiddleware
         );
         // Log error
         $this->container['log']->error($message, array(
-            'Exception file'  => $exception->getFile(),
+            'exception' => $exception,
+            'Exception message'  => $message,
             'Exception line'  => $exception->getLine(),
-            'Exception trace' => $exception->getTraceAsString()
+            'Exception trace' => $exception->getTraceAsString(),
         ));
     }
 
