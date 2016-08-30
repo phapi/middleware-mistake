@@ -161,9 +161,9 @@ class Mistake implements ErrorMiddleware
      * middleware is created. Any exceptions thrown before that won't
      * be caught by this handler.
      *
-     * @param \Exception $exception
+     * @param \Throwable $exception
      */
-    public function exceptionHandler(\Exception $exception)
+    public function exceptionHandler(\Throwable $exception)
     {
         // Try and get the latest request, or a new request
         $request =
