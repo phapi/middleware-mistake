@@ -2,6 +2,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [1.1.2] - 2016-08-30
+### Added
+- PHP 7 Error Exception handling as well as keeping PHP 5.6 support
+
 ## [1.1.1] - 2015-12-21
 ### Added
 - Added the complete exception to the logger to get better error messages in for example Sentry
