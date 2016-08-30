@@ -161,9 +161,9 @@ class Mistake implements ErrorMiddleware
      * middleware is created. Any exceptions thrown before that won't
      * be caught by this handler.
      *
-     * @param \Throwable $exception
+     * @param $exception
      */
-    public function exceptionHandler(\Throwable $exception)
+    public function exceptionHandler($exception)
     {
         // Try and get the latest request, or a new request
         $request =
@@ -177,7 +177,7 @@ class Mistake implements ErrorMiddleware
 
         // Check if exception is an instance of the Phapi Exception. If not, create
         // an InternalServerError Exception to get better error message to send to
-        // the client.
+        // the client. This will also catch PHP 7 ErrorExceptions 
         if (!($exception instanceof Exception)) {
             $exception = new InternalServerError(
                 $exception->getMessage(),
